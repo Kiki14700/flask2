@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='prva.css') }}">
+        <title>Flask vrijeme</title>
+        {{bootstrap.load_css()}}
+    </head>
+
+    <body>
+        <section class="vrijeme">
+        <div class="container col-sm-7">
+            <h1>Vrijeme i vremenska prognoza</h1>
+            <h3>{{weather.dt | datetime}}</p>
+            </h3>
+            <div class="card" style="width: 24rem;">
+                <h4 class="card-header">
+                    {{weather.name}}
+                </h4>
+                <div class="card-body">
+                    <h5 class="card-title">{{weather.weather[0].description}}</h5>
+                    <div class="card-text">
+                        <p>Temeratura: {{weather.main.temp}} C˙</p>
+                        <p>Vlažnost zraka: {{weather.main.humidity}}%</p>
+                        <p>Tlak: {{weather.main.pressure}} hpa</p>
+                        <p>Izlazak sunca: {{weather.sys.sunrise | datetime}}</p>
+                        <p>Zalazak sunca: {{weather.sys.sunset | datetime}}</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Prognoza za slijedećih 7 dana</a>
+                </div>
+            </div>
+        </div>
+        </section>
+
+       
+    </body>
+
+
+
+</html>
+ 
